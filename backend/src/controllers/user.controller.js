@@ -15,7 +15,14 @@ async function GetAuth(req,res){
 }
 async function GetPerson(req,res){
     const serviceResponse = await SERVICE_users_GetPerson(req.user);
-    res.status(200).json(serviceResponse);        
+    if (serviceResponse[1]) {
+       serviceResponse[2]
+        ? res.json({ message: serviceResponse[0], data: serviceResponse[2] })
+        : res.json({ message: serviceResponse[0] })
+    }
+    else{
+        res.status(404).json({ message: serviceResponse[0] })
+    }
 }
 
 

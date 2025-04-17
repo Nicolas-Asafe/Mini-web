@@ -3,9 +3,12 @@ import {Router} from 'express'
 import VerifyToken from "../middleware.js";
 
 const UserRouter = Router()
-UserRouter.get('/Users',ListUsers)
+UserRouter.get('/Users',ListUsers) 
 UserRouter.post('/RegisterUser',CreateUser)
 UserRouter.post('/LoginUser',GetAuth)
-UserRouter.post('/Person',VerifyToken,GetPerson)
+UserRouter.get('/Person',VerifyToken,GetPerson)
 
 export default UserRouter
+
+//Account test
+//504550
