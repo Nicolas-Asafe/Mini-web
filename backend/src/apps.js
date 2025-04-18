@@ -7,6 +7,7 @@ import { ConnectDB } from './utils/MongooseHandler.js';
 import env from 'dotenv'
 env.config();
 const app = Express();
+app.use(cors());
 
 
 
@@ -18,7 +19,6 @@ app.use((req, res, next) => {
     next();
   });
   
-app.use(cors());
 app.use(Express.json());
 ConnectDB()
 
